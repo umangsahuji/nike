@@ -1,0 +1,182 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block contant %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>   
+</head>
+<body>
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+            <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                <div class="col-first">
+                    <h1>Shopping Cart</h1>
+                    <nav class="d-flex align-items-center">
+                        <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                        <a href="category.html">Cart</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
+{% if  carts %}
+    
+
+    <!--================Cart Area =================-->
+    <section class="cart_area">
+        <div class="container">
+            <div class="cart_inner">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    
+<head>
+</head>
+
+<body>
+
+    
+
+    <!-- End Banner Area -->
+
+    <!--================Cart Area =================-->
+    <section class="cart_area">
+ 
+        <div class="container">
+
+            <div class="cart_inner">
+                <div class="table-responsive">
+                    {% for i in carts %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <img src="{{i.product.product_pic.url}}" alt="">
+                                        </div>
+                                    <div class="media">
+                                        
+                                            <p>{{i.product.product_name}}</p>
+                                    
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5>Rs. {{i.product.product_price}}</h5>
+                                </td>
+                                <td class="product-quantity">
+                                                <div class="quantity buttons_added">
+                                                    <form name="change_qty" method="post" action="{% url 'change_qty' pk=i.pk%}">
+                                                       {% csrf_token %}
+                                                    <input type="number" size="1" class="input-text qty text" value="{{i.product_qty}}" name="product_qty" min="1" step="1" onchange="this.form.submit();">
+                                        
+                                                    </form>
+                                                </div>
+                                    </td>
+
+                                <td>
+                                    <h5>Rs. {{i.total_price}}</h5>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                
+                            </tr>
+                    
+                                                         
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <h5>Subtotal</h5>
+                                </td>
+                                <td>
+                                    <h5>Rs{{net_price}}</h5>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <tr class="shipping_area">
+                                <td>
+
+                                </td>
+                                
+                                
+                                                              </td>
+                            </tr>
+                            <tr class="out_button_area">
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <div class="checkout_btn_inner d-flex align-items-center">
+                                        <a class="gray_btn" href="#">Continue Shopping</a><br>
+                                    </div>
+                                    <br>
+                                    <form name="checkout" action="{% url 'pay' %}" method="POST">
+                        <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                            {% csrf_token %}
+                            <input type="hidden" name="amount" value="{{net_price}}">
+                            Proceed to Checkout
+                            }
+                        </button>
+                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--================End Cart Area =================-->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% else%}
+        <h1>No item to Cart</h1>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+</body>
+
+</html>
+{% endblock %}

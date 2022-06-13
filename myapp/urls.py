@@ -1,0 +1,31 @@
+from django.urls import path
+from .import views
+urlpatterns = [
+    path('',views.home,name='home'),
+    path('signup',views.signup,name='signup'),
+    path('index',views.index,name='index'),
+    path('login',views.login,name='login'),
+    path('logout',views.logout,name='logout'),
+    path('profile',views.profile,name='profile'),
+    path('seller_header',views.seller_header,name='seller_header'),
+    path('forgot_password',views.forgot_password,name='forgot_password'),
+    path('verify_otp',views.verify_otp,name='verify_otp'),
+    path('change_password',views.change_password,name='change_password'),
+    path('single_product/<int:pk>/',views.single_product,name='single_product'),
+    path('seller_home',views.seller_home,name='seller_home'),
+    path('seller_add_product',views.seller_add_product,name='seller_add_product'),
+    path('seller_header',views.seller_header,name='seller_header'),
+    path('seller_edit_product/<int:pk>/',views.seller_edit_product,name='seller_edit_product'),
+    path('seller_product_details/<int:pk>/',views.seller_product_details,name='seller_product_details'),
+    path('seller_product_delete/<int:pk>/',views.seller_product_delete,name='seller_product_delete'),
+    path('add_to_wishlist/<int:pk>/',views.add_to_wishlist,name='add_to_wishlist'),
+    path('wishlist',views.wishlist,name='wishlist'),
+    path('remove_to_wishlist/<int:pk>/',views.remove_to_wishlist,name='remove_to_wishlist'),
+    path('cart',views.cart,name='cart'),
+    path('add_to_cart/<int:pk>/',views.add_to_cart,name='add_to_cart'),
+    path('change_qty/<int:pk>/',views.change_qty,name='change_qty'),
+    path('remove_to_cart/<int:pk>/',views.remove_to_cart,name='remove_to_cart'),
+    path('pay', views.initiate_payment, name='pay'),
+    path('callback/',views.callback, name='callback'),
+
+]

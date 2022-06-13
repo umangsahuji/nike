@@ -1,0 +1,60 @@
+{%  extends 'seller_header.html' %}
+{% load static %}
+{% block contant %}
+<<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	<!-- End banner Area -->
+
+
+
+	<!-- start product Area -->
+	<section class="owl-carousel active-product-area section_gap">
+		<!-- single product slide -->
+	{% for i in products %}
+
+		<div class="single-product-slider">
+			<div class="container">
+					<div class="col-lg-3 col-md-6">
+						<div class="single-product">
+							<img class="img-fluid" src="{{i.product_pic.url}}" alt="">
+							<div class="product-details">
+								<h6>{{i.product_name}}</h6>
+								<div class="price">
+									<h6>{{i.product_price}}</h6>
+								
+								</div>
+								<a href="{% url 'seller_product_details' pk=i.pk %}">details</a>
+								<input type="submit" value="delete" class="btn dangour">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<!-- single product slide -->
+		<div class="single-product-slider">
+			
+		</div>
+	</section>
+
+	
+	<!-- End related-product Area -->
+
+</body>
+</html>
+{% endblock %}
